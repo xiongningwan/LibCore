@@ -99,7 +99,7 @@ public class BaseConsumer implements Consumer<Throwable> {
             ToastUtil.showError(R.string.ybcp_no_network);
         } else if (e instanceof UnknownHostException) {
             ToastUtil.showError(R.string.ybcp_no_address_associated_with_hostname);
-        } else if (e instanceof java.lang.IllegalStateException) {
+        } else if (e instanceof IllegalStateException) {
             ToastUtil.showError(R.string.ybcp_cant_parse_illegalStateException);
         } else {
             if (!TextUtils.isEmpty(e.getMessage()) && e.getMessage().contains("java.lang.IllegalStateException")) {
