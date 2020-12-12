@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
-import es.dmoral.toasty.Toasty;
+import com.yb.core.view.toast.Toasty;
 
 
 public class ToastUtil {
