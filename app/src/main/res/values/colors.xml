@@ -49,10 +49,4 @@
     <color name="ybcp_color_blue_00a0e9">#00a0e9</color>
     <color name="ybcp_color_blue_007aff">#007aff</color>
 
-    <color name="ybcp_defaultTextColor">#FFFFFF</color>
-    <color name="ybcp_errorColor">#D50000</color>
-    <color name="ybcp_infoColor">#3F51B5</color>
-    <color name="ybcp_successColor">#388E3C</color>
-    <color name="ybcp_warningColor">#FFA900</color>
-    <color name="ybcp_normalColor">#353A3E</color>
 </resources>
