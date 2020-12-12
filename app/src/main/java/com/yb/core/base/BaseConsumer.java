@@ -2,16 +2,12 @@ package com.yb.core.base;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.yb.core.net.ApiException;
 import com.yb.core.net.CustomHttpException;
 import com.yb.core.net.ErrorResult;
-import com.yb.core.net.HttpCode;
 import com.yb.core.net.IErrorType;
-import com.yb.core.utils.AppUtil;
-import com.yb.core.utils.ToastUtil;
 import com.yb.core.utils.ToastUtil;
 import com.zy.core.R;
 
