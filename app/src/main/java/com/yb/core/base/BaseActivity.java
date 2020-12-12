@@ -30,76 +30,18 @@ import io.reactivex.disposables.Disposable;
 
 public abstract class BaseActivity extends AppCompatActivity {
     protected CompositeDisposable mDisposable;
-    protected View mFooter;
-    private int mSystemUiHeight;
-    private View mToolBar;
-    private boolean isCusStatus;
-    private int toolbarBackgroundColor = R.drawable.ybcp_pub_status_bar_color;
-    protected boolean isHasStatusBar = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // ActivityStackManager.getInstance().addActivity(this);
-        if(isHasStatusBar) {
-            addStatusBar();
-        } else {
-            View contentView = LayoutInflater.from(this).inflate(getLayoutId(), null);
-            setContentView(contentView);
-        }
+        View contentView = LayoutInflater.from(this).inflate(getLayoutId(), null);
+        setContentView(contentView);
 
-        mFooter = View.inflate(this, R.layout.ybcp_item_no_more_data_footer, null);
         initViews();
         initData(savedInstanceState);
         processLogic();
     }
-
-    private void addStatusBar() {
-        View contentView = LayoutInflater.from(this).inflate(getLayoutId(), null);
-        LinearLayout.LayoutParams params_ll = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        LinearLayout contentViewLayout = new LinearLayout(this);
-        contentViewLayout.setOrientation(LinearLayout.VERTICAL);
-        initToolBar();
-        if (mSystemUiHeight == 0) {
-            mSystemUiHeight = StatusBarUtil.getHeight(this);
-        }
-        contentViewLayout.addView(mToolBar, ViewGroup.LayoutParams.MATCH_PARENT, mSystemUiHeight);
-        contentViewLayout.addView(contentView, params_ll);
-        setContentView(contentViewLayout);
-        setStatusBar();
-    }
-
-    protected void setStatusBar() {
-        StatusBarUtil.transparencyBar(this, false);
-        StatusBarUtil.StatusBarIconDark(this);
-    }
-
-
-    public void initToolBar() {
-        if (mToolBar == null) {
-            mToolBar = LayoutInflater.from(this).inflate(R.layout.ybcp_activity_tools_bar, null);
-            mToolBar.setBackgroundResource(R.drawable.ybcp_pub_status_bar_color);
-        }
-    }
-
-    public void setToolBackGroundColor(int colorValue) {
-        toolbarBackgroundColor = colorValue;
-        if (mToolBar != null) {
-            mToolBar.setBackgroundResource(toolbarBackgroundColor);
-        }
-    }
-
-    public void resetBackGroundColor() {
-        toolbarBackgroundColor = R.drawable.ybcp_pub_status_bar_color;
-        if (mToolBar != null) {
-            mToolBar.setBackgroundResource(toolbarBackgroundColor);
-        }
-    }
-
-    protected void setHasStatusBar(boolean isHasStatusBar) {
-        this.isHasStatusBar =isHasStatusBar;
-    }
-
 
     @LayoutRes
     protected abstract int getLayoutId();

@@ -1,9 +1,11 @@
 package com.yb.core.utils;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
 import es.dmoral.toasty.Toasty;
@@ -60,6 +62,10 @@ public class ToastUtil {
 
     public static void initToasty() {
         Toasty.Config.getInstance().allowQueue(false).apply();
+    }
+
+    public static void initToasty(@NonNull Typeface typeface) {
+        Toasty.Config.getInstance().setToastTypeface(typeface).allowQueue(false).apply();
     }
 
     private static boolean isRepeatText(String text) {
